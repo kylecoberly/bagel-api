@@ -14,18 +14,21 @@ const database = knex(databaseConfig)
 
 
 app.get("/bagels", (request, response) => {
+    console.log("Getting all bagels")
     database("bagel").select().then(bagels => {
         response.json(bagels)
     }).catch(error => console.error(error.message))
 })
 
 app.get("/bagels/:id", (request, response) => {
+    console.log("Getting one bagel")
     database("bagel").select().where({id: request.params.id}).first().then(bagels => {
         response.json(bagels)
     }).catch(error => console.error(error.message))
 })
 
 app.post("/bagels", (request, response) => {
+    console.log("Adding a bagel")
     database("bagel").insert({
         type: request.body.type,
         rating: request.body.rating,
@@ -35,6 +38,7 @@ app.post("/bagels", (request, response) => {
 })
 
 app.put("/bagels/:id", (request, response) => {
+    console.log("Updating a bagel")
     database("bagel").update({
         type: request.body.type,
         rating: request.body.rating,
@@ -44,6 +48,7 @@ app.put("/bagels/:id", (request, response) => {
 })
 
 app.delete("/bagels/:id", (request, response) => {
+    console.log("Deleting a bagel")
     database("bagel").del()
         .where({ id: request.params.id }).then(bagels => {
             response.json(bagels[0])
