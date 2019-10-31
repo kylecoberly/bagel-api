@@ -29,7 +29,6 @@ app.get("/bagels", (request, response) => {
     }).catch(error => console.error(error.message))
 })
 
-/*
 app.get("/bagels/:id", (request, response) => {
     console.log("Getting one bagel")
     database("bagel").select().where({id: request.params.id}).first().then(bagels => {
@@ -37,6 +36,7 @@ app.get("/bagels/:id", (request, response) => {
     }).catch(error => console.error(error.message))
 })
 
+/*
 app.post("/bagels", (request, response) => {
     console.log("Adding a bagel")
     database("bagel").insert({
