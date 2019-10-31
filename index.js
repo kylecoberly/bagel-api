@@ -50,6 +50,7 @@ app.delete("/bagels/:id", (request, response) => {
 })
 
 app.use((error, request, response, next) => {
+    console.error(error)
     response.json({ error })
 })
 
