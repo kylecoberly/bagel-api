@@ -4,7 +4,6 @@ const express = require("express")
 
 const app = express()
 const knex = require("knex")
-
 const bodyParser = require("body-parser")
 
 app.use(bodyParser.json())
