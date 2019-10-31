@@ -1,8 +1,17 @@
-require("dotenv").config()
+//require("dotenv").config()
 
 const express = require("express")
-
 const app = express()
+
+app.get("/", (request, response) => {
+    response.send("Hooray!")
+})
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Listening on port ${process.env.PORT}`)
+})
+
+/*
 const knex = require("knex")
 const bodyParser = require("body-parser")
 const cors = require("cors")
@@ -68,3 +77,4 @@ app.use((error, request, response, next) => {
 app.listen(process.env.PORT || 4000, () => {
     console.log("Starting...")
 })
+*/
