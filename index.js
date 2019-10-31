@@ -31,9 +31,12 @@ app.get("/bagels", (request, response) => {
 
 app.get("/bagels/:id", (request, response) => {
     console.log("Getting one bagel")
-    database("bagel").select().where({id: request.params.id}).first().then(bagels => {
-        response.json(bagels)
-    }).catch(error => console.error(error.message))
+    database("bagel")
+        .select()
+        .where({id: request.params.id})
+        .then(bagels => {
+            response.json(bagels[0])
+        }).catch(error => console.error(error.message))
 })
 
 /*
