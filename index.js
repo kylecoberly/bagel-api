@@ -18,15 +18,11 @@ app.listen(process.env.PORT || 3000, () => {
     console.log(`Listening on port ${process.env.PORT}`)
 })
 
-/*
 console.log(process.env.NODE_ENV)
 const databaseConfig = require("./knexfile")[process.env.NODE_ENV || "development"]
 const database = knex(databaseConfig)
 
-app.get("/", (request, response) => {
-    response.send("Hooray!")
-})
-
+/*
 app.get("/bagels", (request, response) => {
     console.log("Getting all bagels")
     database("bagel").select().then(bagels => {
