@@ -22,7 +22,6 @@ console.log(process.env.NODE_ENV)
 const databaseConfig = require("./knexfile")[process.env.NODE_ENV || "development"]
 const database = knex(databaseConfig)
 
-/*
 app.get("/bagels", (request, response) => {
     console.log("Getting all bagels")
     database("bagel").select().then(bagels => {
@@ -30,6 +29,7 @@ app.get("/bagels", (request, response) => {
     }).catch(error => console.error(error.message))
 })
 
+/*
 app.get("/bagels/:id", (request, response) => {
     console.log("Getting one bagel")
     database("bagel").select().where({id: request.params.id}).first().then(bagels => {
