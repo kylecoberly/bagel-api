@@ -5,13 +5,18 @@ const express = require("express")
 const app = express()
 const knex = require("knex")
 const bodyParser = require("body-parser")
+const cors = require("cors")
 
 app.use(bodyParser.json())
+app.use(cors())
 
 console.log(process.env.NODE_ENV)
 const databaseConfig = require("./knexfile")[process.env.NODE_ENV || "development"]
 const database = knex(databaseConfig)
 
+app.get("/", (request, response) => {
+    response.send("Hooray!")
+})
 
 app.get("/bagels", (request, response) => {
     console.log("Getting all bagels")
