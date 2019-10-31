@@ -49,4 +49,8 @@ app.delete("/bagels/:id", (request, response) => {
         })
 })
 
+app.use((error, request, response, next) => {
+    response.json({ error })
+})
+
 app.listen(process.env.PORT || 4000)
