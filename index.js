@@ -30,6 +30,11 @@ app.get("/bagels", (request, response) => {
 })
 
 app.get("/bagels/:id", (request, response) => {
+    console.log("Getting all bagels")
+    database("bagel").select().then(bagels => {
+        response.json(bagels)
+    }).catch(error => console.error(error.message))
+    /*
     console.log("Getting one bagel")
     database("bagel")
         .select()
@@ -37,6 +42,7 @@ app.get("/bagels/:id", (request, response) => {
         .then(bagels => {
             response.json(bagels[0])
         }).catch(error => console.error(error.message))
+    */
 })
 
 /*
