@@ -3,6 +3,13 @@
 const express = require("express")
 const app = express()
 
+const knex = require("knex")
+const bodyParser = require("body-parser")
+const cors = require("cors")
+
+app.use(bodyParser.json())
+app.use(cors())
+
 app.get("/", (request, response) => {
     response.send("Hooray!")
 })
@@ -12,13 +19,6 @@ app.listen(process.env.PORT || 3000, () => {
 })
 
 /*
-const knex = require("knex")
-const bodyParser = require("body-parser")
-const cors = require("cors")
-
-app.use(bodyParser.json())
-app.use(cors())
-
 console.log(process.env.NODE_ENV)
 const databaseConfig = require("./knexfile")[process.env.NODE_ENV || "development"]
 const database = knex(databaseConfig)
@@ -72,9 +72,5 @@ app.delete("/bagels/:id", (request, response) => {
 app.use((error, request, response, next) => {
     console.error(error)
     response.json({ error })
-})
-
-app.listen(process.env.PORT || 4000, () => {
-    console.log("Starting...")
 })
 */
